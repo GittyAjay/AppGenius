@@ -1,26 +1,18 @@
 {
-  "name": "rightmajay-react-component-generator",
-  "version": "1.2.4",
+  "name": "chat-ui",
+  "version": "1.0.0",
   "description": "",
-  "main": "start.js",
+  "main": "index.js",
   "scripts": {
-    "rcc": "start.js",
-    "nodemon": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": {
-    "rcc": "start.js"
-  },
-  "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
-    "axios": "^1.6.8",
-    "dialog": "^0.3.1",
     "express": "^4.19.2",
     "express-formidable": "^1.2.0",
-    "openai": "^4.38.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
+    "http": "^0.0.1-security",
+    "openai": "^4.38.2",
+    "socket.io": "^4.7.5"
   }
 }

@@ -1,139 +1,174 @@
+/* Define the gradient background */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
+    /* background: linear-gradient(45deg, #FF6B6B, #7EC8E3); */
+    background: linear-gradient(45deg, #FF6B6B, #0000FF);
+
+}
+
+/* Other styles remain the same */
+* {
     padding: 0;
+    box-sizing: border-box;
+}
+
+.chat-view {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.chat-messages-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+}
+
+.sent-message {
+    align-self: flex-end;
+    background-color: #DCF8C6;
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin: 5px 0;
+}
+
+.received-message {
+    align-self: flex-start;
+    background-color: #E5E5EA;
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin: 5px 0;
+}
+
+.sent-message,
+.received-message {
+    background-color: #DCF8C6;
+    background-color: #E5E5EA;
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin: 5px 0;
+    max-width: 40%;
+    word-wrap: break-word;
+}
+
+.first-message {
+    /* Add any additional styles you want for the first received message */
+}
+
+
+.chat-input-container {
+    width: 100%;
+    padding: 10px;
+    border: 3px solid #010101;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.chat-input-box {
+    flex: 1;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+.send-button {
+    padding: 8px 20px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-
-.form-container {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px;
-}
-
-.form-container h1 {
-    margin-top: 0;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-.longerinput {
-    width: 100%;
-    height: 200px;
-    text-align: start;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-.form-group button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    margin-left: 10px;
 }
 
-.form-group button:hover {
-    background-color: #0056b3;
-}
-
-#loader {
-    position: fixed;
+.watermark {
+    position: absolute;
+    top: 10%;
     left: 50%;
-    top: 50%;
-    z-index: 1;
-    width: 50px;
-    height: 50px;
-    margin: -60px 0 0 -60px;
-    border: 16px solid #f3f3f3;
+    transform: translateX(-50%);
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.5);
+
+}
+
+.loading-bubble {
+    display: flex;
+    align-items: center;
+}
+
+.dot-container {
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    border-top: 16px solid #3498db;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
+    background-color: #007bff;
+    margin: 0 2px;
+    animation: loading 1s infinite;
 }
 
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
+@keyframes loading {
 
+    0%,
     100% {
-        -webkit-transform: rotate(360deg);
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
     }
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
 
-    100% {
-        transform: rotate(360deg);
-    }
+.chat-welcome-text {
+    max-width: 400px;
+    margin: 20px auto;
 }
 
-/* Add animation to "page content" */
-.animate-bottom {
-    position: relative;
-    -webkit-animation-name: animatebottom;
-    -webkit-animation-duration: 1s;
-    animation-name: animatebottom;
-    animation-duration: 1s
+.chat-message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
 }
 
-@-webkit-keyframes animatebottom {
-    from {
-        bottom: -100px;
-        opacity: 0
-    }
+.received {
+    background-color: #d3d3d3;
+    text-align: left;
 
-    to {
-        bottom: 0px;
-        opacity: 1
-    }
 }
 
-@keyframes animatebottom {
-    from {
-        bottom: -100px;
-        opacity: 0
-    }
-
-    to {
-        bottom: 0;
-        opacity: 1
-    }
+.explanation {
+    background-color: #add8e6;
+    text-align: left;
+    cursor: pointer;
 }
 
-#myDiv {
+.self-care {
+    background-color: #98fb98;
+    text-align: left;
+    cursor: pointer;
+}
+
+.itinerary {
+    background-color: #ffcccb;
+    text-align: left;
+    cursor: pointer;
+}
+
+.hide {
     display: none;
-    text-align: center;
 }

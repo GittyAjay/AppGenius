@@ -1,21 +1,38 @@
-// server.js
 
 const express = require('express');
 const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const http = require('http')
+const socketIo = require('socket.io');
 const formidableMiddleware = require('express-formidable');
 const { createComponent, buildAndroidApk, updateNavigatorCode, renameProject, deleteFolderRecursive } = require('./start');
 const { askAssistant } = require("./openai")
 const app = express();
+const server = http.createServer(app);
+const io = socketIo(server);
+
+app.use(express.static(__dirname + '/public'));
+
+io.on('connection', (socket) => {
+    console.log('A user connected');
+    socket.on('chat message', (msg) => {
+        io.emit('chat message', msg);
+    });
+    socket.on('disconnect', () => {
+        console.log('User disconnected');
+    });
+});
+
+
 app.use(formidableMiddleware());
 const PORT = 3000;
 
 app.use(express.static('public'));
 
-app.post('/submit', (req, res) => {
-    const { projectName, instruction } = req.fields;
-
+app.post('/submit', async (req, res) => {
+    const { instruction } = req.fields;
+    const projectName = await getAppName(instruction)
     renameProject(projectName)
         .then(() => {
             return componentArray(instruction);
@@ -41,7 +58,19 @@ app.post('/submit', (req, res) => {
 });
 
 
-
+function getAppName(instruction) {
+    return new Promise((resolve, reject) => {
+        const component_code = `${instruction} you have to return only app name in string from it don't add any preceeding text `;
+        askAssistant(component_code)
+            .then(res_code => {
+                resolve(res_code);
+            })
+            .catch(error => {
+                console.error('Error in getAppName:', error);
+                reject(error);
+            });
+    });
+}
 function componentArray(instruction) {
     return new Promise((resolve, reject) => {
         const create_component_prompt = instruction + "Please provide a concise list of page names, without spaces, for your React Native app. Ensure each name is distinct and represents a unique page in your application. Return the names as an array. Avoid including any extraneous text beyond the code.";
@@ -93,6 +122,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+server.listen(PORT, () => {
+    console.log('Server is running on port 3000');
 });
