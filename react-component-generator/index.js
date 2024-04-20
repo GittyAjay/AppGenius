@@ -43,8 +43,7 @@ app.post('/submit', async (req, res) => {
         .then((apkPath) => {
             if (apkPath) {
                 console.log('APK path:', apkPath);
-                deleteFolderRecursive();
-                updateNavigatorCode();
+
                 res.send("apkContent");
             } else {
                 console.log('No APK generated.');
@@ -54,7 +53,12 @@ app.post('/submit', async (req, res) => {
         .catch((error) => {
             console.error('Error occurred during script execution:', error);
             res.status(500).send('Internal Server Error');
+        })
+        .finally(() => {
+            deleteFolderRecursive();
+            updateNavigatorCode();
         });
+
 });
 
 
