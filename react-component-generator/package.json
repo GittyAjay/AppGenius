@@ -1,0 +1,26 @@
+{
+  "name": "rightmajay-react-component-generator",
+  "version": "1.2.4",
+  "description": "",
+  "main": "start.js",
+  "scripts": {
+    "rcc": "start.js",
+    "nodemon": "nodemon index.js"
+  },
+  "bin": {
+    "rcc": "start.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "dialog": "^0.3.1",
+    "express": "^4.19.2",
+    "express-formidable": "^1.2.0",
+    "openai": "^4.38.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
