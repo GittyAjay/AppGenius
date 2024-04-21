@@ -46,7 +46,7 @@ app.post('/submit', async (req, res) => {
             .then((apkPath) => {
                 if (apkPath) {
                     console.log('APK path:', apkPath);
-                    res.json({ message: 'App is generated pls donwload it from here' });
+                    res.json({ message: 'App is generated please donwload it from here' });
                 } else {
                     console.log('No APK generated.');
                     res.json({ message: 'No APK generated.' });
