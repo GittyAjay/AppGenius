@@ -2,7 +2,6 @@
 body {
     /* background: linear-gradient(45deg, #FF6B6B, #7EC8E3); */
     background: linear-gradient(45deg, #FF6B6B, #0000FF);
-
 }
 
 /* Other styles remain the same */
@@ -21,11 +20,13 @@ body {
 }
 
 .chat-messages-container {
-    width: 100%;
+    width: calc(100% - 20px);
+    /* Adjusted width considering the left and right margins */
     display: flex;
     flex-direction: column;
     padding: 10px;
-
+    margin-bottom: 60px;
+    /* Increased margin to accommodate the fixed input container */
 }
 
 .sent-message {
@@ -34,6 +35,12 @@ body {
     border-radius: 10px;
     padding: 8px 12px;
     margin: 5px 0;
+}
+
+.message-container {
+    overflow: auto;
+    display: flex;
+    margin-bottom: 160px;
 }
 
 .received-message {
@@ -73,14 +80,25 @@ body {
 }
 
 .chat-input-container {
-    width: 100%;
-    padding: 10px;
-    border: 3px solid #010101;
+    width: calc(100% - 20px);
+    /* Adjusted width considering the left and right margins */
+    padding: 6px;
+    border: 2.5px solid #010101;
     border-radius: 10px;
     display: flex;
     align-items: center;
-    margin: 10px;
+    margin: 10px auto 20px;
+    /* Added margin to the bottom and centered horizontally */
+    position: fixed;
+    /* Fixed position to keep it at the bottom */
+    bottom: 10px;
+    /* Adjust as needed */
+    left: 10px;
+    /* Adjust as needed */
+    right: 10px;
+    /* Adjust as needed */
 }
+
 
 .chat-input-box {
     flex: 1;
@@ -183,4 +201,52 @@ body {
 
 .hide {
     display: none;
+}
+
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    background-color: linear-gradient(45deg, #d56969, #0606ee);
+    z-index: 1000;
+}
+
+.logo-container img {
+    height: 50px;
+    /* Adjust the height of the logo */
+}
+
+.app-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.action-button .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    /* Change the button color as needed */
+    color: #fff;
+    /* Text color */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.action-button .btn:hover {
+    background-color: #0056b3;
+    /* Change the button hover color */
+}
+
+/* Adjust padding for the content to ensure it's not hidden behind the fixed header */
+body {
+    padding-top: 80px;
+    /* Adjust according to the height of your header */
 }

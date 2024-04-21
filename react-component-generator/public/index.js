@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var chatMessagesContainer = document.querySelector('.chat-messages-container');
     var welcomeTextContainer = document.querySelector('.chat-welcome-text'); // Added reference to welcome text container
     var welcomeTextBox = document.querySelector('.welcomeTextContainer');
+
     function appendMessage(message, isSentByCurrentUser, isFileDownloaded) {
         const messageElement = document.createElement('div');
+        chatMessagesContainer.classList.add('message-container')
         messageElement.classList.add('message', isSentByCurrentUser ? 'sent-message' : 'received-message');
         if (isFileDownloaded) {
             const messageWrapper = document.createElement('div');
