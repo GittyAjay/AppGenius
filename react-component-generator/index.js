@@ -7,7 +7,8 @@ const http = require('http')
 const socketIo = require('socket.io');
 const formidableMiddleware = require('express-formidable');
 const { createComponent, buildAndroidApk, updateNavigatorCode, renameProject, deleteFolderRecursive } = require('./start');
-const { askAssistant } = require("./openai")
+const { askAssistant } = require("./openai");
+const { chdir } = require('process');
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
@@ -32,42 +33,80 @@ app.use(express.static('public'));
 
 app.post('/submit', async (req, res) => {
     const { instruction } = req.fields;
-    const projectName = await getAppName(instruction)
-    renameProject(projectName)
-        .then(() => {
-            return componentArray(instruction);
-        })
-        .then(() => {
-            return buildAndroidApk();
-        })
-        .then((apkPath) => {
-            if (apkPath) {
-                console.log('APK path:', apkPath);
-
-                res.send("apkContent");
-            } else {
-                console.log('No APK generated.');
-                res.send('No APK generated.');
-            }
-        })
-        .catch((error) => {
-            console.error('Error occurred during script execution:', error);
-            res.status(500).send('Internal Server Error');
-        })
-        .finally(() => {
-            deleteFolderRecursive();
-            updateNavigatorCode();
-        });
+    res.setHeader('Content-Type', 'application/json');
+    if (await isInstructionisValid(instruction)) {
+        const projectName = await getAppName(instruction)
+        renameProject(projectName)
+            .then(() => {
+                return componentArray(instruction);
+            })
+            .then(() => {
+                return buildAndroidApk();
+            })
+            .then((apkPath) => {
+                if (apkPath) {
+                    console.log('APK path:', apkPath);
+                    res.json({ message: 'App is generated pls donwload it from here' });
+                } else {
+                    console.log('No APK generated.');
+                    res.json({ message: 'No APK generated.' });
+                }
+            })
+            .catch((error) => {
+                console.error('Error occurred during script execution:', error);
+                res.status(500).res.json({ message: 'error in generating apk' });
+            })
+            .finally(() => {
+                deleteFolderRecursive();
+                updateNavigatorCode();
+            });
+    } else {
+        res.status(404).json({ message: "Oops! It seems like your message doesn't match any of our available applications. Please provide a valid instruction related to one of our apps. Thank you!" });
+    }
 
 });
 
-
+app.get('/download', (req, res) => {
+    const parentDir = path.join(__dirname, '..');
+    const apkFilePath = 'android/app/build/outputs/apk/release/app-release.apk';
+    const fileName = 'app-release.apk';
+    const apkFile = path.join(parentDir, apkFilePath);
+    console.log("===fs.existsSync(apkFile)", apkFile);
+    if (fs.existsSync(apkFile)) {
+        res.setHeader('Content-disposition', 'attachment; filename=' + fileName);
+        res.setHeader('Content-type', 'application/vnd.android.package-archive');
+        const apkFileStream = fs.createReadStream(apkFile);
+        apkFileStream.pipe(res);
+    } else {
+        res.status(404).send('APK file not found');
+    }
+});
 function getAppName(instruction) {
     return new Promise((resolve, reject) => {
         const component_code = `${instruction} you have to return only app name in string from it don't add any preceeding text `;
         askAssistant(component_code)
             .then(res_code => {
                 resolve(res_code);
+            })
+            .catch(error => {
+                console.error('Error in getAppName:', error);
+                reject(error);
+            });
+    });
+}
+function isInstructionisValid(instruction) {
+    return new Promise((resolve, reject) => {
+        const isInstructionisValid_code = `if this statement is not about to making, describing application or deleting application where application can be Web Application, Android or iOS,  then specify one word invalid otherwise valid  for ${instruction}`;
+        askAssistant(isInstructionisValid_code)
+            .then(res_code => {
+                let cleaned_res_code = res_code.replace(/\._/g, '');
+                console.log("isInstructionisValid", cleaned_res_code?.toLowerCase());
+                if (res_code?.toLowerCase() !== "invalid") {
+                    resolve(true);
+                } else {
+                    resolve(false)
+                }
+
             })
             .catch(error => {
                 console.error('Error in getAppName:', error);

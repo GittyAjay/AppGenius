@@ -170,16 +170,7 @@ function buildAndroidApk() {
                 }
                 console.log(`stdout: ${stdout}`);
                 console.error(`stderr: ${stderr}`);
-
-                fileDownload()
-                    .then((message) => {
-                        console.log(message);
-                        resolve("File saved to download folder")
-                    })
-                    .catch((error) => {
-                        console.error(error);
-                        reject(error)
-                    });
+                resolve("Apk created sucessfully")
             });
         } catch (error) {
             console.error(`Error occurred: ${error}`);
@@ -187,23 +178,23 @@ function buildAndroidApk() {
         }
     });
 }
-function fileDownload() {
-    const filePath = path.join(__dirname, '..', 'android/app/build/outputs/apk/release/app-release.apk');
+// function fileDownload() {
+//     const filePath = path.join(__dirname, '..', 'android/app/build/outputs/apk/release/app-release.apk');
 
-    const destinationFolderPath = path.join(require('os').homedir(), 'Downloads');
-    const destinationFilePath = path.join(destinationFolderPath, 'app-release.apk');
+//     const destinationFolderPath = path.join(require('os').homedir(), 'Downloads');
+//     const destinationFilePath = path.join(destinationFolderPath, 'app-release.apk');
 
-    return new Promise((resolve, reject) => {
-        const readStream = fs.createReadStream(filePath);
-        const writeStream = fs.createWriteStream(destinationFilePath);
-        readStream.on('error', reject);
-        writeStream.on('error', reject);
-        readStream.on('end', () => {
-            resolve("downloaded");
-        });
-        readStream.pipe(writeStream);
-    });
-}
+//     return new Promise((resolve, reject) => {
+//         const readStream = fs.createReadStream(filePath);
+//         const writeStream = fs.createWriteStream(destinationFilePath);
+//         readStream.on('error', reject);
+//         writeStream.on('error', reject);
+//         readStream.on('end', () => {
+//             resolve("downloaded");
+//         });
+//         readStream.pipe(writeStream);
+//     });
+// }
 
 module.exports = {
     askForComponentName,

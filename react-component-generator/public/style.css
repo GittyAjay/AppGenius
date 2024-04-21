@@ -59,6 +59,18 @@ body {
     /* Add any additional styles you want for the first received message */
 }
 
+.message-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.download-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    border: none;
+    background-color: transparent;
+}
 
 .chat-input-container {
     width: 100%;
