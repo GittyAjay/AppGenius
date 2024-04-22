@@ -46,7 +46,7 @@ app.post('/submit', async (req, res) => {
             .then((apkPath) => {
                 if (apkPath) {
                     console.log('APK path:', apkPath);
-                    res.json({ message: 'App is generated please donwload it from here' });
+                    res.json({ message: 'App is generated please download it from here' });
                 } else {
                     console.log('No APK generated.');
                     res.json({ message: 'No APK generated.' });
@@ -57,8 +57,8 @@ app.post('/submit', async (req, res) => {
                 res.status(500).res.json({ message: 'error in generating apk' });
             })
             .finally(() => {
-                // deleteFolderRecursive();
-                // updateNavigatorCode();
+                deleteFolderRecursive();
+                updateNavigatorCode();
             });
     } else {
         res.status(404).json({ message: "Oops! It seems like your message doesn't match any of our available applications. Please provide a valid instruction related to one of our apps. Thank you!" });
@@ -96,7 +96,7 @@ function getAppName(instruction) {
 }
 function isInstructionisValid(instruction) {
     return new Promise((resolve, reject) => {
-        const isInstructionisValid_code = `if this statement is not about to making, describing application or deleting application where application can be Web Application, Android or iOS,  then specify one word invalid otherwise valid  for ${instruction}`;
+        const isInstructionisValid_code = `if the following statement is not about to making, describing application where application can be Web Application, Android or iOS,  then specify one word invalid otherwise valid  for ${instruction}"`;
         askAssistant(isInstructionisValid_code)
             .then(res_code => {
                 let cleaned_res_code = res_code.replace(/\._/g, '');
