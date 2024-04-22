@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
+            <Stack.Navigator>
             </Stack.Navigator>
         </NavigationContainer>
     );

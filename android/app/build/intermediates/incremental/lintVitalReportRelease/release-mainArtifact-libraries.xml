@@ -28,7 +28,7 @@
   <library
       name="/Users/ajaypandey/Documents/Avishkar.Ai/android@@:react-native-screens::release"
       jars="/Users/ajaypandey/Documents/Avishkar.Ai/node_modules/react-native-screens/android/build/.transforms/29c3150b36bb3b381c675318b0c5a2ae/transformed/out/jars/classes.jar:/Users/ajaypandey/Documents/Avishkar.Ai/node_modules/react-native-screens/android/build/.transforms/29c3150b36bb3b381c675318b0c5a2ae/transformed/out/jars/libs/R.jar"
-      resolved="ChatConnect:react-native-screens:unspecified"
+      resolved="Chatify:react-native-screens:unspecified"
       folder="/Users/ajaypandey/Documents/Avishkar.Ai/node_modules/react-native-screens/android/build/.transforms/29c3150b36bb3b381c675318b0c5a2ae/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
@@ -213,7 +213,7 @@
   <library
       name="/Users/ajaypandey/Documents/Avishkar.Ai/android@@:react-native-gesture-handler::release"
       jars="/Users/ajaypandey/Documents/Avishkar.Ai/node_modules/react-native-gesture-handler/android/build/.transforms/9e7c49b8fd3b680a6236cd1fbc653cb4/transformed/out/jars/classes.jar:/Users/ajaypandey/Documents/Avishkar.Ai/node_modules/react-native-gesture-handler/android/build/.transforms/9e7c49b8fd3b680a6236cd1fbc653cb4/transformed/out/jars/libs/R.jar"
-      resolved="ChatConnect:react-native-gesture-handler:unspecified"
+      resolved="Chatify:react-native-gesture-handler:unspecified"
       folder="/Users/ajaypandey/Documents/Avishkar.Ai/node_modules/react-native-gesture-handler/android/build/.transforms/9e7c49b8fd3b680a6236cd1fbc653cb4/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
@@ -226,7 +226,7 @@
   <library
       name="/Users/ajaypandey/Documents/Avishkar.Ai/android@@:react-native-safe-area-context::release"
       jars="/Users/ajaypandey/Documents/Avishkar.Ai/node_modules/react-native-safe-area-context/android/build/.transforms/6950f6ab3475de0dc6fa906e88d505db/transformed/out/jars/classes.jar:/Users/ajaypandey/Documents/Avishkar.Ai/node_modules/react-native-safe-area-context/android/build/.transforms/6950f6ab3475de0dc6fa906e88d505db/transformed/out/jars/libs/R.jar"
-      resolved="ChatConnect:react-native-safe-area-context:unspecified"
+      resolved="Chatify:react-native-safe-area-context:unspecified"
       folder="/Users/ajaypandey/Documents/Avishkar.Ai/node_modules/react-native-safe-area-context/android/build/.transforms/6950f6ab3475de0dc6fa906e88d505db/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"

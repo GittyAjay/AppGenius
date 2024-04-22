@@ -3,7 +3,7 @@
     dir="/Users/ajaypandey/Documents/Avishkar.Ai/android/app"
     name=":app"
     type="APP"
-    maven="ChatConnect:app:"
+    maven="Chatify:app:"
     agpVersion="8.1.1"
     buildFolder="build"
     bootClassPath="/Users/ajaypandey/Library/Android/sdk/platforms/android-34/android.jar:/Users/ajaypandey/Library/Android/sdk/build-tools/34.0.0/core-lambda-stubs.jar"

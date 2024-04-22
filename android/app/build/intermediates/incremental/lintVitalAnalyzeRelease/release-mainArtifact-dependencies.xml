@@ -9,7 +9,7 @@
         simpleName="com.facebook.react:flipper-integration"/>
     <dependency
         name="/Users/ajaypandey/Documents/Avishkar.Ai/android@@:react-native-screens::release"
-        simpleName="ChatConnect:react-native-screens"/>
+        simpleName="Chatify:react-native-screens"/>
     <dependency
         name="com.facebook.fresco:fresco:3.1.3@aar"
         simpleName="com.facebook.fresco:fresco"/>
@@ -60,10 +60,10 @@
         simpleName="com.facebook.react:hermes-android"/>
     <dependency
         name="/Users/ajaypandey/Documents/Avishkar.Ai/android@@:react-native-gesture-handler::release"
-        simpleName="ChatConnect:react-native-gesture-handler"/>
+        simpleName="Chatify:react-native-gesture-handler"/>
     <dependency
         name="/Users/ajaypandey/Documents/Avishkar.Ai/android@@:react-native-safe-area-context::release"
-        simpleName="ChatConnect:react-native-safe-area-context"/>
+        simpleName="Chatify:react-native-safe-area-context"/>
     <dependency
         name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.21@jar"
         simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk7"/>
@@ -216,13 +216,13 @@
         simpleName="com.facebook.react:flipper-integration"/>
     <dependency
         name="/Users/ajaypandey/Documents/Avishkar.Ai/android@@:react-native-gesture-handler::release"
-        simpleName="ChatConnect:react-native-gesture-handler"/>
+        simpleName="Chatify:react-native-gesture-handler"/>
     <dependency
         name="/Users/ajaypandey/Documents/Avishkar.Ai/android@@:react-native-safe-area-context::release"
-        simpleName="ChatConnect:react-native-safe-area-context"/>
+        simpleName="Chatify:react-native-safe-area-context"/>
     <dependency
         name="/Users/ajaypandey/Documents/Avishkar.Ai/android@@:react-native-screens::release"
-        simpleName="ChatConnect:react-native-screens"/>
+        simpleName="Chatify:react-native-screens"/>
     <dependency
         name="com.facebook.react:react-android:0.73.7:release@aar"
         simpleName="com.facebook.react:react-android"/>
