@@ -88,10 +88,9 @@ function createComponent(componentName, customCode) {
     });
 }
 
-function updateNavigatorCode(params) {
-    const currentDir = process.cwd();
+function updateNavigatorCode() {
     const _filePath = './src/navigator/index.js';
-    const filePath = path.join(currentDir, '..', _filePath);
+    const filePath = path.join(__dirname, '..', _filePath);
 
     console.log('File path:', filePath); // Log the file path
 
@@ -105,7 +104,7 @@ const Stack = createStackNavigator();
 function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
+            <Stack.Navigator>
             </Stack.Navigator>
         </NavigationContainer>
     );
@@ -113,14 +112,12 @@ function App() {
 
 export default App;
 `;
-
-    // Write the new content to the file
     fs.writeFile(filePath, newFileContent, 'utf8', (err) => {
         if (err) {
-            console.error('Error writing file:', err);
+            console.error('Error in navigation File reset :', err);
             return;
         }
-        console.log('File updated successfully.');
+        console.log('Navigation File reset successfully.');
     });
 }
 

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "ImanAIassistantandIdont.app"
-               BlueprintName = "ImanAIassistantandIdont"
-               ReferencedContainer = "container:ImanAIassistantandIdont.xcodeproj">
+               BuildableName = "Chatify.app"
+               BlueprintName = "Chatify"
+               ReferencedContainer = "container:Chatify.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ImanAIassistantandIdontTests.xctest"
-               BlueprintName = "ImanAIassistantandIdontTests"
-               ReferencedContainer = "container:ImanAIassistantandIdont.xcodeproj">
+               BuildableName = "ChatifyTests.xctest"
+               BlueprintName = "ChatifyTests"
+               ReferencedContainer = "container:Chatify.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ImanAIassistantandIdont.app"
-            BlueprintName = "ImanAIassistantandIdont"
-            ReferencedContainer = "container:ImanAIassistantandIdont.xcodeproj">
+            BuildableName = "Chatify.app"
+            BlueprintName = "Chatify"
+            ReferencedContainer = "container:Chatify.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ImanAIassistantandIdont.app"
-            BlueprintName = "ImanAIassistantandIdont"
-            ReferencedContainer = "container:ImanAIassistantandIdont.xcodeproj">
+            BuildableName = "Chatify.app"
+            BlueprintName = "Chatify"
+            ReferencedContainer = "container:Chatify.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
