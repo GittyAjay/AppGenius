@@ -88,10 +88,9 @@ function createComponent(componentName, customCode) {
     });
 }
 
-function updateNavigatorCode(params) {
-    const currentDir = process.cwd();
+function updateNavigatorCode() {
     const _filePath = './src/navigator/index.js';
-    const filePath = path.join(currentDir, '..', _filePath);
+    const filePath = path.join(__dirname, '..', _filePath);
 
     console.log('File path:', filePath); // Log the file path
 
@@ -105,7 +104,7 @@ const Stack = createStackNavigator();
 function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
+            <Stack.Navigator>
             </Stack.Navigator>
         </NavigationContainer>
     );
@@ -113,14 +112,12 @@ function App() {
 
 export default App;
 `;
-
-    // Write the new content to the file
     fs.writeFile(filePath, newFileContent, 'utf8', (err) => {
         if (err) {
-            console.error('Error writing file:', err);
+            console.error('Error in navigation File reset :', err);
             return;
         }
-        console.log('File updated successfully.');
+        console.log('Navigation File reset successfully.');
     });
 }
 
@@ -170,16 +167,7 @@ function buildAndroidApk() {
                 }
                 console.log(`stdout: ${stdout}`);
                 console.error(`stderr: ${stderr}`);
-
-                fileDownload()
-                    .then((message) => {
-                        console.log(message);
-                        resolve("File saved to download folder")
-                    })
-                    .catch((error) => {
-                        console.error(error);
-                        reject(error)
-                    });
+                resolve("Apk created sucessfully")
             });
         } catch (error) {
             console.error(`Error occurred: ${error}`);
@@ -187,23 +175,23 @@ function buildAndroidApk() {
         }
     });
 }
-function fileDownload() {
-    const filePath = path.join(__dirname, '..', 'android/app/build/outputs/apk/release/app-release.apk');
+// function fileDownload() {
+//     const filePath = path.join(__dirname, '..', 'android/app/build/outputs/apk/release/app-release.apk');
 
-    const destinationFolderPath = path.join(require('os').homedir(), 'Downloads');
-    const destinationFilePath = path.join(destinationFolderPath, 'app-release.apk');
+//     const destinationFolderPath = path.join(require('os').homedir(), 'Downloads');
+//     const destinationFilePath = path.join(destinationFolderPath, 'app-release.apk');
 
-    return new Promise((resolve, reject) => {
-        const readStream = fs.createReadStream(filePath);
-        const writeStream = fs.createWriteStream(destinationFilePath);
-        readStream.on('error', reject);
-        writeStream.on('error', reject);
-        readStream.on('end', () => {
-            resolve("downloaded");
-        });
-        readStream.pipe(writeStream);
-    });
-}
+//     return new Promise((resolve, reject) => {
+//         const readStream = fs.createReadStream(filePath);
+//         const writeStream = fs.createWriteStream(destinationFilePath);
+//         readStream.on('error', reject);
+//         writeStream.on('error', reject);
+//         readStream.on('end', () => {
+//             resolve("downloaded");
+//         });
+//         readStream.pipe(writeStream);
+//     });
+// }
 
 module.exports = {
     askForComponentName,
