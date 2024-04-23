@@ -4,6 +4,7 @@ Thumbs.db
 
 # Dependencies
 /node_modules
+/react-component-generator/node_modules
 
 # Bundle files
 npm-debug.log*
