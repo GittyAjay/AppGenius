@@ -1,3 +1,4 @@
 main,public file html updated,2024-04-24 21:42:50,104 seconds,Update public HTML file to reflect changes made to the content.
 main,created logic for socket service,2024-04-24 21:43:28,38 seconds,- Implemented logic within the socket service to facilitate communication and data exchange between clients and a server.
 main,created authentication for logi and signup page,2024-04-24 21:44:01,33 seconds,Create authentication feature for login and signup pages to enable secure access control for users.
+main,home page,2024-04-24 21:45:29,88 seconds,Create a new design for the home page to improve user experience and increase engagement on the website.
