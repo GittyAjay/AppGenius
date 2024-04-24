@@ -1,3 +1,5 @@
 main,public file html updated,,107 seconds,null
 main,public file html updated,,128 seconds,askAssistant 
 null
+main,public file html updated,,80 seconds,Calling OpenAI API with elapsed time: 80
+null
