@@ -1,1 +1,9 @@
-ajay,start file changes,2024-04-24 17:02:15,88 seconds,
+ajay,start file changes,2024-04-24 17:03:35,80 seconds,{
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": "\"start file changes\""
+  },
+  "logprobs": null,
+  "finish_reason": "stop"
+}
