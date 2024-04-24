@@ -1,1 +1,2 @@
 ajay,start file changes,2024-04-24 17:05:40,92 seconds,Update file changes in codebase for new functionality implementation.
+ajay,created a home page,2024-04-24 17:06:17,37 seconds,Create a Jira issue with the following description: "Develop a home page layout for the website, ensuring a user-friendly design and seamless navigation."
