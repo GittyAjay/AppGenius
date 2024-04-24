@@ -1,1 +1,23 @@
-ajay,start file changes,2024-04-24 16:54:35,127 seconds,OPENAI_API_KEY=sk-proj-Qrv12kVGNLuoAkoYjSKDT3BlbkFJzWJJaTbNKMAP1bJLg6li, COMMIT_MESSAGE=start file changes
+ajay,start file changes,2024-04-24 16:56:17,102 seconds,{
+  "id": "chatcmpl-9HV3RD8opKOQ9jVkFN3hRpM5HeNrS",
+  "object": "chat.completion",
+  "created": 1713957977,
+  "model": "gpt-3.5-turbo-0125",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "\"start file changes\""
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 37,
+    "completion_tokens": 5,
+    "total_tokens": 42
+  },
+  "system_fingerprint": "fp_c2295e73ad"
+}
