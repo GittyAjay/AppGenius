@@ -1,1 +1,2 @@
 ajay,first log,2024-04-24 17:15:42,126 seconds,Create a log feature to record system activities and events.
+ajay,first log,2024-04-24 17:17:11,89 seconds,Create a Jira issue to track the initial logging implementation in the project with the commit message 'first log'.
