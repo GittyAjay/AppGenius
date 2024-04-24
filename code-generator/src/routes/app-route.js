@@ -1,10 +1,22 @@
-const express = require('express')
-const path = require('path')
-const http = require('http')
-const formidableMiddleware = require('express-formidable')
 const app = express()
+const express = require('express')
+const formidableMiddleware = require('express-formidable')
+const http = require('http')
+const path = require('path')
+const { PORT } = require("../config/app-confidential")
 const server = http.createServer(app)
-const{PORT}=require("../config/app-confidential")
+const io = socketIo(server)
+
+io.on('connection', (socket) => {
+  console.log('A user connected')
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg)
+  })
+  socket.on('disconnect', () => {
+    console.log('User disconnected')
+  })
+})
+
 app.use(express.static(__dirname + '/public'))
 
 app.use(formidableMiddleware())
@@ -15,5 +27,5 @@ app.get('/', (req, res) => {
 })
 
 server.listen(PORT, () => {
-  console.log('Server is running on port 3000')
+  console.log(`Server is running on port ${PORT}`)
 })

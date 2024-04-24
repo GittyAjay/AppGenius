@@ -1,7 +1,7 @@
 const OpenAI = require('openai')
-const {apiKey}=require("../config/openai")
+const { apiKey, PORT } = require("../config/app-confidential")
 
-async function askAssistant (prompt) {
+async function askAssistant(prompt) {
   try {
     const openai = new OpenAI({
       apiKey
