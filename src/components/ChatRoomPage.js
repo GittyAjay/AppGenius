@@ -5,6 +5,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
 const ChatRoomPage = ({ navigation }) => {
+
+
+  fwnjfnejfewnjnwfjwe
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Chat Room Page</Text>
