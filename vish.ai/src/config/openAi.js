@@ -1,5 +1,7 @@
 const OpenAI = require('openai');
-const apiKey = 'sk-proj-2li9kkRs1oFfolDahIhQT3BlbkFJMSiu78FNiPfRnd0onZ0j';
+const {
+    apiKey
+} = require("../utils/constant")
 
 async function askAssistant(prompt) {
     try {

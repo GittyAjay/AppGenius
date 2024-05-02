@@ -1,5 +1,5 @@
 {
-  "name": "messenger",
+  "name": "chatzilla",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -13,6 +13,7 @@
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "@react-navigation/stack": "^6.3.29",
+    "dotenv": "^16.4.5",
     "react": "18.2.0",
     "react-native": "0.73.7",
     "react-native-gesture-handler": "^2.16.0",
