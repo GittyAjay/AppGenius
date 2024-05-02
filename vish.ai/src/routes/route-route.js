@@ -1,5 +1,7 @@
+const path = require('path');
 function routeRoute(req, res) {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    const twoLevelsDownDir = path.join(__dirname, '..', '..');
+    res.sendFile(path.join(twoLevelsDownDir, 'public', 'index.html'));
 }
 function serverRoute() {
     console.log('Server is running on port 3000');

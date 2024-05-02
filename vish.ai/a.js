@@ -1,0 +1,1 @@
+import React from 'react'; \nimport { View, Text } from 'react-native'; \n\nconst HomePage = () => { \n  return (\n < View >\n < Text > Welcome to Home Page</Text >\n    </View >\n  ); \n }; \nexport default HomePage; \n

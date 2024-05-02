@@ -3,9 +3,6 @@ const {
     submitRoute,
     downloadRoute
 } = require('./form-route');
-const {
-    socketRoute
-} = require('./socket-route');
 
 const {
     routeRoute,
@@ -15,7 +12,6 @@ const {
 module.exports = {
     submitRoute,
     downloadRoute,
-    socketRoute,
     routeRoute,
     serverRoute
 };

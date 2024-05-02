@@ -1,38 +1,54 @@
-
 const express = require('express');
-require('dotenv').config()
-const http = require('http')
+const http = require('http');
 const socketIo = require('socket.io');
 const formidableMiddleware = require('express-formidable');
+const path = require('path');
+const dotenv = require('dotenv');
+dotenv.config();
+// Import routes
+const {
+    submitRoute,
+    downloadRoute,
+    routeRoute
+} = require("../routes");
+
+// Create Express app
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 
-const {
-    submitRoute,
-    downloadRoute,
-    socketRoute,
-    routeRoute,
-    serverRoute
-} = require("../routes")
+// Serve static files
+const twoLevelsUpDir = path.join(__dirname, '..', '..');
+const publicDir = path.join(twoLevelsUpDir, 'public');
+app.use(express.static(publicDir));
 
-app.use(express.static(__dirname + '../../public'));
-app.use(express.static('public'));
+// Parse form data
 app.use(formidableMiddleware());
 
-io.on('connection', socketRoute);
+// Socket.IO connection handling
+io.on('connection', function socketRoute(socket) {
+    console.log('A user connected');
+    socket.on('chat message', (msg) => {
+        io.emit('chat message', msg);
+    });
+    socket.on('disconnect', () => {
+        console.log('User disconnected');
+    });
+});
 
+// Define routes
 app.post('/submit', submitRoute);
-
 app.get('/download', downloadRoute);
-
-
 app.get('/', routeRoute);
 
-if (process.env.PORT) {
-    server.listen(process.env.PORT, serverRoute);
-} else {
-    const PORT = 3000;
-    server.listen(PORT, serverRoute);
+// Start the server
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-}
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+});
